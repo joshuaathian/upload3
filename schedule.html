@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MoveWithUs Sports Club — Schedule</title>
+  <meta name="description" content="Weekly schedule showing times, trainers and class levels for MoveWithUs Sports Club.">
+
+  <link rel="stylesheet" href="stlyes.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    .hero {
+  background: linear-gradient(rgba(0, 59, 115, 0.7), rgba(0, 59, 115, 0.7)),
+              url('gym-hero.jpg') center/cover no-repeat;
+  text-align: center;
+  padding: 6rem 1rem;
+  color: white;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', Arial, sans-serif; line-height: 1.6; color: #333; background: #f7f9fc; }
+    a { color: #003B73; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+   
+    .section { padding: 3rem 1rem; max-width: 1200px; margin: 0 auto; opacity: 0; transform: translateY(20px); transition: all 0.6s ease-in-out; }
+    .section.visible { opacity: 1; transform: translateY(0); }
+    h2 { color: #003B73; margin-bottom: 1rem; }
+
+    
+    table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+    caption { caption-side: top; font-weight: bold; font-size: 1.2rem; padding: 1rem; }
+    th, td { padding: 0.75rem 1rem; text-align: left; }
+    th { background: #003B73; color: white; position: sticky; top: 0; }
+    tbody tr { transition: background 0.3s; }
+    tbody tr:nth-child(even) { background: #f0f4f8; }
+    tbody tr:hover { background: #e6f0ff; }
+    td img { width: 35px; height: 35px; border-radius: 50%; margin-right: 0.5rem; vertical-align: middle; }
+
+    
+    .btn-book { background: #F2C94C; color: #003B73; border: none; padding: 0.4rem 0.8rem; font-weight: 600; border-radius: 5px; cursor: pointer; transition: all 0.3s; }
+    .btn-book:hover { background: #ffc947; }
+
+    ul { list-style: disc inside; margin-top: 1rem; }
+    ul li { margin-bottom: 0.75rem; }
+
+   
+    .footer { text-align: center; background: #003B73; color: white; padding: 2rem 1rem; margin-top: 3rem; }
+    .footer a { color: #F2C94C; margin: 0 0.5rem; }
+
+    @media (max-width: 768px) {
+      .nav-container { flex-direction: column; gap: 1rem; }
+      .main-nav ul { flex-direction: column; gap: 0.75rem; }
+      .nav-toggle { display: block; }
+
+      table, thead, tbody, th, td, tr { display: block; }
+      thead tr { display: none; }
+      tbody tr { margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 8px; padding: 1rem; background: white; }
+      td { display: flex; justify-content: space-between; padding: 0.5rem 0; }
+      td::before { content: attr(data-label); font-weight: 600; color: #003B73; }
+    }
+    td::before {
+  padding-right: 0.5rem;
+}
+td img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #003B73;
+}
+.btn-book {
+  background: #F2C94C;
+  color: #003B73;
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: transform 0.3s ease, background 0.3s;
+}
+
+.btn-book:hover {
+  background: #ffe27b;
+  transform: translateY(-3px);
+}
+tr.today {
+  background: #fff9d9 !important;
+  border-left: 4px solid #F2C94C;
+}
+
+.level-badge {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 20px;
+  color: white;
+  text-transform: capitalize;
+}
+
+
+
+.level-beginner {
+  background: #27ae60;   
+}
+
+.level-intermediate {
+  background: hsl(0, 86%, 62%);   
+  color: #003B73;        
+}
+
+.level-advanced {
+  background: hsl(44, 78%, 57%);   
+}
+
+.level-all {
+  background: #003B73;   
+}
+
+
+  </style>
+</head>
+
+<body>
+  
+
+ 
+    <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <a href="index.html" aria-label="MoveWithUs home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 120 120">
+            <defs>
+              <linearGradient id="badgeGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#003B73"/>
+                <stop offset="100%" stop-color="#0055A5"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="56" fill="url(#badgeGradient)" stroke="#F2C94C" stroke-width="4"/>
+            <circle cx="60" cy="35" r="10" fill="#F2C94C"/>
+            <path d="M50 60 Q60 45 70 60 L65 85 Q60 95 55 85 Z" fill="#F2C94C"/>
+            <text x="50%" y="115" text-anchor="middle" font-size="14" font-family="Montserrat, Arial, sans-serif" font-weight="600" fill="white">MoveWithUs</text>
+          </svg>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+           <li><a href="schedule.html" class="active" aria-current="page">Schedule</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" aria-label="toggle navigation">☰</button>
+    </div>
+  </header>
+  <section class="hero">
+    <h1>Weekly Class Schedule</h1>
+    <p>Plan your week and book your favorite classes</p>
+  </section>
+
+  
+  <main id="main">
+    <section class="section container">
+      <h2>Class Timetable</h2>
+      <table>
+        <caption>MoveWithUs weekly timetable showing class times and trainers</caption>
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Time</th>
+            <th>Class</th>
+            <th>Trainer</th>
+            <th>Level</th>
+            <th>Book</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Monday</td>
+            <td>07:00 – 08:00</td>
+            <td>Morning Yoga</td>
+            <td><img src="Brenda - Yoga.jpg" alt="Brenda"> Brenda</td>
+            <td><span class="level-badge level-beginner">Beginner</span></td>
+            <td><a href="classes.html#morning-yoga" class="btn-book">Book Now</a></td>
+
+          </tr>
+          <tr>
+            <td>Tuesday</td>
+            <td>18:00 – 19:00</td>
+            <td>HIIT</td>
+            <td><img src="Kevin - Strength Training.jpg" alt="Kevin"> Kevin</td>
+            <td><span class="level-badge level-intermediate">Intermediate</span></td>
+            <td><a href="classes.html#hiit" class="btn-book">Book Now</a></td>
+
+          </tr>
+          <tr>
+            <td>Wednesday</td>
+            <td>17:00 – 18:00</td>
+            <td>Strength Training</td>
+            <td><img src="Bryan - Cardio.jpg" alt="Bryan"> Bryan</td>
+            <td><span class="level-badge level-advanced">All Levels</span></td>
+            <td><a href="classes.html#strength-training" class="btn-book">Book Now</a></td>
+
+          </tr>
+          <tr>
+            <td>Thursday</td>
+            <td>07:00 – 08:00</td>
+            <td>Pilates</td>
+            <td><img src="Breanna - HIIT.jpg" alt="Breanna"> Breanna</td>
+            <td><span class="level-badge level-beginner">Beginner</span></td>
+            <td><a href="classes.html#pilates" class="btn-book">Book Now</a></td>
+
+          </tr>
+          <tr>
+            <td>Friday</td>
+            <td>18:00 – 19:00</td>
+            <td>Cardio Burn</td>
+            <td><img src="Breanna - HIIT.jpg" alt="Breanna"> Breanna</td>
+            <td><span class="level-badge level-intermediate">Advanced</span></td>
+            <td><a href="classes.html#cardio-burn" class="btn-book">Book Now</a></td>
+
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section container">
+      <h2>Notes</h2>
+      <ul>
+        <li>Arrive 10 minutes early for warm-up.</li>
+        <li>Book classes marked 'book' in advance due to limited capacity.</li>
+        <li>Contact us if you have accessibility needs: <a href="contact.html">contact form</a>.</li>
+      </ul>
+    </section>
+  </main>
+
+  
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 MoveWithUs Sports Club. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const today = days[new Date().getDay()];
+document.querySelectorAll("tbody tr").forEach(row=>{
+  if(row.children[0].textContent.trim() === today){
+    row.classList.add("today");
+  }
+});
+
+document.querySelector(".nav-toggle").addEventListener("click", function () {
+  document.querySelector(".main-nav").classList.toggle("open");
+});
+
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); } });
+    }, { threshold: 0.1 });
+    sections.forEach(section => observer.observe(section));
+  </script>
+</body>
+</html>

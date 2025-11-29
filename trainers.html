@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Trainers - MoveWithUs Sports Club</title>
+  <link rel="stylesheet" href="stlyes.css" />
+   <style>
+    /* Keep page-specific table/hero tweaks here (these complement the site stylesheet) */
+    .hero { padding: 3rem 1rem; color: white; text-align: center; background: linear-gradient(135deg, #003B73, #0055A5); }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    table th { position: sticky; top: 0; }
+    @media (max-width: 768px) {
+      /* mobile table styles kept from original */
+      table, thead, tbody, th, td, tr { display:block; }
+      thead tr { display:none; }
+    }
+    
+    .program-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.program-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+}
+
+.program-card figure img {
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.program-card:hover figure img {
+  transform: scale(1.05);
+}
+.hero-content {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.program-card figure {
+  perspective: 1000px;
+}
+
+.program-card img {
+  backface-visibility: hidden;
+  transition: transform 0.6s;
+}
+
+.program-card:hover img {
+  transform: rotateY(10deg);
+}
+.btn-primary {
+  background: #0055A5;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+  background: #003B73;
+  transform: scale(1.05);
+}
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2rem; }
+  .hero p { font-size: 1rem; }
+}
+.nav-links a:hover {
+  color: #F2C94C;
+  text-decoration: underline;
+}
+
+.trainer-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.trainer-list .badge {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: #0055A5;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 28px;
+  font-family: Arial, sans-serif;
+}
+.btn-primary {
+  background: #FF7A00;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.btn-primary:hover {
+  background: #e06b00; 
+  transform: scale(1.05);
+}
+
+  </style>
+</head>
+<body>
+
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <a href="index.html" aria-label="MoveWithUs home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 120 120">
+            <defs>
+              <linearGradient id="badgeGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#003B73"/>
+                <stop offset="100%" stop-color="#0055A5"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="56" fill="url(#badgeGradient)" stroke="#F2C94C" stroke-width="4"/>
+            <circle cx="60" cy="35" r="10" fill="#F2C94C"/>
+            <path d="M50 60 Q60 45 70 60 L65 85 Q60 95 55 85 Z" fill="#F2C94C"/>
+            <text x="50%" y="115" text-anchor="middle" font-size="14" font-family="Montserrat, Arial, sans-serif" font-weight="600" fill="white">MoveWithUs</text>
+          </svg>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="trainers.html" class="active" aria-current="page">Trainers</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" aria-label="toggle navigation">☰</button>
+    </div>
+  </header>
+
+
+  <section class="hero">
+        <div class="container hero-content">
+            <h1>Meet Our Trainers</h1>
+            <p>Meet our passionate, certified trainers who design safe, effective workouts for every level — from beginners to athletes. Browse their profiles below to find the coach who will help you reach your fitness goals.</p>
+            <br>
+            <a href="schedule.html" class="btn btn-primary">Join Now</a>
+        </div>
+    </section>
+
+  <main id="main-content" class="program-grid container">
+    <section>
+      <h2 class="section-title">Our Trainers</h2>
+      <article class="program-card">
+        <figure>
+          <img src="Brenda - Yoga.jpg" alt="Brenda, a yoga trainer leading a stretch pose">
+          <figcaption>Brenda – Yoga Instructor</figcaption>
+        </figure>
+        <p>Brenda is a certified yoga instructor with over 8 years teaching Hatha, Vinyasa, and Restorative Yoga. Her classes focus on breath, alignment, and mindfulness.</p>
+      </article>
+<br>
+      <article class="program-card">
+        <figure>
+          <img src="Kevin - Strength Training.jpg" alt="Kevin, a HIIT trainer demonstrating high-intensity movements">
+          <figcaption>Kevin – HIIT Trainer</figcaption>
+        </figure>
+        <p>Kevin is a certified HIIT instructor with 7+ years leading interval-based workouts to maximize calorie burn and endurance.</p>
+      </article>
+<br>
+      <article class="program-card">
+        <figure>
+          <img src="Bryan - Cardio.jpg" alt="Bryan, a strength trainer assisting a client with barbell form">
+          <figcaption>Bryan – Strength Training Coach</figcaption>
+        </figure>
+        <p>Bryan is a strength and conditioning specialist with over 10 years helping clients build muscle and improve fitness.</p>
+      </article>
+<br>
+      <article class="program-card">
+        <figure>
+          <img src="Breanna - HIIT.jpg" alt="Breanna, a cardio coach leading a fast-paced cardio class">
+          <figcaption>Breanna – Cardio Training Coach</figcaption>
+        </figure>
+        <p>Breanna is a cardio coach with 8 years experience helping clients boost endurance and cardiovascular health.</p>
+      </article>
+    </section>
+<br>
+    <aside>
+      <h3>Trainer Certifications</h3>
+      
+     <ul class="trainer-list">
+  <li><span class="badge">Y</span> Brenda: RYT 500 – Yoga Alliance</li>
+  <li><span class="badge">H</span> Kevin: ACE Certified HIIT Instructor</li>
+  <li><span class="badge">S</span> Bryan: CSCS – NSCA</li>
+  <li><span class="badge">C</span> Breanna: ACE Certified Personal Trainer</li>
+</ul>
+
+
+    </aside>
+  </main>
+<br>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 MoveWithUs Sports Club - All rights reserved</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>MoveWithUs - Classes</title>
+    <link rel="stylesheet" href="stlyes.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+            <script src="script.js" defer></script>
+  <style>
+    /* Keep page-specific table/hero tweaks here (these complement the site stylesheet) */
+    .hero { padding: 3rem 1rem; color: white; text-align: center; background: linear-gradient(135deg, #003B73, #0055A5); }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    table th { position: sticky; top: 0; }
+    @media (max-width: 768px) {
+      /* mobile table styles kept from original */
+      table, thead, tbody, th, td, tr { display:block; }
+      thead tr { display:none; }
+    }
+    .filter-panel-modern {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 250px;
+  }
+
+  .filter-panel-modern h3 {
+    color: #003B73;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #FF7A00;
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .filter-group label {
+    font-weight: 600;
+    color: #003B73;
+  }
+
+  .filter-group select {
+    padding: 0.5rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .filter-group select:focus {
+    border-color: #FF7A00;
+    box-shadow: 0 0 5px rgba(255,122,0,0.5);
+  }
+
+  .filter-group .filter-button {
+    padding: 0.6rem;
+    border-radius: 8px;
+    border: none;
+    background-color: #FF7A00;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .filter-group .filter-button:hover {
+    background-color: #e66e00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  }
+
+  @media (max-width: 768px) {
+    .filter-panel-modern {
+      max-width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+    
+  </style>
+</head>
+<body>
+ 
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <a href="index.html" aria-label="MoveWithUs home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 120 120">
+            <defs>
+              <linearGradient id="badgeGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#003B73"/>
+                <stop offset="100%" stop-color="#0055A5"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="56" fill="url(#badgeGradient)" stroke="#F2C94C" stroke-width="4"/>
+            <circle cx="60" cy="35" r="10" fill="#F2C94C"/>
+            <path d="M50 60 Q60 45 70 60 L65 85 Q60 95 55 85 Z" fill="#F2C94C"/>
+            <text x="50%" y="115" text-anchor="middle" font-size="14" font-family="Montserrat, Arial, sans-serif" font-weight="600" fill="white">MoveWithUs</text>
+          </svg>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="classes.html" class="active" aria-current="page">Classes</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" aria-label="toggle navigation">☰</button>
+    </div>
+  </header>
+
+ 
+  <section class="hero">
+        <div class="container hero-content">
+            <h1>Classes and Programs</h1>
+            <p>
+Our classes are designed to help members of all fitness levels improve strength, flexibility, and overall wellness. Each session is led by certified trainers who provide guidance, motivation, and safe technique instruction. Whether you are a beginner or an experienced athlete, our classes offer structured workouts that support your personal fitness goals.</p>
+
+            <br>
+            <a href="schedule.html" class="btn btn-primary">Join Now</a>
+        </div>
+    </section>
+<br>
+    <div class="classes-layout">
+      <aside class="filter-panel-modern" aria-labelledby="filter-heading">
+  <h3 id="filter-heading">Filter Classes</h3>
+
+  <div class="filter-group">
+    <label for="class-type">Select Class Type:</label>
+    <select id="class-type" name="class-type">
+      <option value="all">All Classes</option>
+      <option value="yoga">🧘 Yoga</option>
+      <option value="strength">💪 Strength</option>
+      <option value="cardio">🏃 Cardio</option>
+      <option value="hiit">🔥 HIIT</option>
+    </select>
+  </div>
+
+  <div class="filter-group">
+    <button class="btn btn-primary filter-button" onclick="filterClasses()">Apply Filter</button>
+  </div>
+</aside>
+
+
+      <!-- Main list area -->
+      <section class="classes-content">
+        <h2 id="available-heading">Available Programs</h2>
+
+        <div class="classes-controls">
+          <div class="search-input" role="search" aria-label="Search classes">
+            <input type="search" id="search" name="search" placeholder="Search classes">
+          </div>
+          <div class="sort-select">
+            <label for="sort" class="visually-hidden">Sort by</label>
+            <select id="sort" name="sort">
+              <option value="popular">Most popular</option>
+              <option value="time">Time</option>
+              <option value="level">Level</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="classes-grid" aria-live="polite">
+          <article id="yoga" class="class-card" data-type="yoga">
+            <div class="class-image">
+              <img src="yoga.jpg" alt="Group yoga class — participants performing downward dog in a bright studio">
+            </div>
+            <div class="class-body">
+              <div class="class-title">Yoga <span class="time-pill">Various times</span></div>
+              <div class="class-desc">Available Yoga Programs: Gentle Flow (beginner-friendly), Vinyasa, Power Yoga. Instructors emphasize alignment and breathing techniques with modifications for all levels.</div>
+              <div class="class-meta">
+                <span class="level-badge">All levels</span>
+                <span class="capacity">Spots: 12</span>
+              </div>
+              <div class="instructor">
+                <img src="Brenda - Yoga.jpg" alt="Brenda, yoga instructor">
+                <div class="name">Brenda</div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <div class="left">
+                <button class="btn btn-primary btn-join" onclick="window.location.href='contact.html'">Join us</button>
+              </div>
+              <div class="right">
+                <button class="favorite-btn" aria-label="Add to favorites">☆</button>
+              </div>
+            </div>
+          </article>
+
+          <article id="strength" class="class-card" data-type="strength">
+            <div class="class-image">
+              <img src="strength training.jpg" alt="Person lifting weights with instructor supervision">
+            </div>
+            <div class="class-body">
+              <div class="class-title">Strength</div>
+              <div class="class-desc">Strength training with dumbbells and barbells, emphasizing controlled movements and proper form.</div>
+              <div class="class-meta">
+                <span class="level-badge">Intermediate</span>
+                <span class="capacity">Spots: 8</span>
+              </div>
+              <div class="instructor">
+                <img src="Kevin - Strength Training.jpg" alt="Kevin, strength trainer">
+                <div class="name">Kevin</div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <div class="left">
+                <button class="btn btn-primary btn-join" onclick="window.location.href='contact.html'">Join us</button>
+              </div>
+              <div class="right">
+                <button class="favorite-btn" aria-label="Add to favorites">☆</button>
+              </div>
+            </div>
+          </article>
+
+          <article id="cardio" class="class-card" data-type="cardio">
+            <div class="class-image">
+              <img src="cardio training.jpg" alt="Members running on treadmills">
+            </div>
+            <div class="class-body">
+              <div class="class-title">Cardio</div>
+              <div class="class-desc">High-energy cardio classes designed to boost heart rate and endurance.</div>
+              <div class="class-meta">
+                <span class="level-badge">All levels</span>
+                <span class="capacity">Spots: 15</span>
+              </div>
+              <div class="instructor">
+                <img src="Bryan - Cardio.jpg" alt="Bryan, cardio coach">
+                <div class="name">Bryan</div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <div class="left">
+                <button class="btn btn-primary btn-join" onclick="window.location.href='contact.html'">Join us</button>
+              </div>
+              <div class="right">
+                <button class="favorite-btn" aria-label="Add to favorites">☆</button>
+              </div>
+            </div>
+          </article>
+
+          <article id="hiit" class="class-card" data-type="hiit">
+            <div class="class-image">
+              <img src="HIIT training.jpg" alt="Instructor leading a HIIT interval session">
+            </div>
+            <div class="class-body">
+              <div class="class-title">HIIT</div>
+              <div class="class-desc">Interval Training (HIIT) sessions — alternating intense bursts with short recovery periods to maximize calorie burn.</div>
+              <div class="class-meta">
+                <span class="level-badge">Advanced</span>
+                <span class="capacity">Spots: 6</span>
+              </div>
+              <div class="instructor">
+                <img src="Breanna - HIIT.jpg" alt="Breanna, HIIT trainer">
+                <div class="name">Breanna</div>
+              </div>
+            </div>
+            <div class="card-actions">
+              <div class="left">
+                <button class="btn btn-primary btn-join" onclick="window.location.href='contact.html'">Join us</button>
+              </div>
+              <div class="right">
+                <button class="favorite-btn" aria-label="Add to favorites">☆</button>
+              </div>
+            </div>
+          </article>
+        </div><!-- .classes-grid -->
+
+        <div class="pagination" role="navigation" aria-label="Classes pagination">
+          <button aria-current="page">1</button>
+          <button>2</button>
+          <button>3</button>
+        </div>
+      </section>
+    </div><!-- .classes-layout -->
+<script>
+  document.getElementById("search").addEventListener("input", function () {
+    const searchValue = this.value.toLowerCase().trim();
+    const cards = document.querySelectorAll(".class-card"); 
+    
+    cards.forEach(card => {
+      const cardText = card.textContent.toLowerCase();
+
+      // Show card if it matches the search input
+      if (cardText.includes(searchValue)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+  document.getElementById("class-type").addEventListener("change", function () {
+    const selected = this.value;
+    const cards = document.querySelectorAll(".class-card");
+
+    cards.forEach(card => {
+      const type = card.getAttribute("data-type");
+
+      // If "all", show everything
+      if (selected === "all") {
+        card.style.display = "block";
+      } 
+      // Otherwise, show only matching cards
+      else if (type === selected) {
+        card.style.display = "block";
+      } 
+      else {
+        card.style.display = "none";
+      }
+    });
+  });
+</script>
+
+</script>
+  </main>
+<br>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 MoveWithUs Sports Club - All rights reserved</p>
+    </div>
+  </footer>
+</body>
+</html>

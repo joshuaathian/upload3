@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Contact — MoveWithUs Sports Club</title>
+  <link rel="stylesheet" href="stlyes.css" />
+   <style>
+    .hero { padding: 3rem 1rem; color: white; text-align: center; background: linear-gradient(135deg, #003B73, #0055A5); }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    table th { position: sticky; top: 0; }
+    @media (max-width: 768px) {
+    }
+    /* Layout for form + aside side-by-side */
+    .program-grid {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    /* Main form column grows to take available space */
+    .program-grid > section {
+      flex: 1 1 60%;
+      min-width: 280px;
+    }
+     .contact-details-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-details-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #003B73;
+    font-size: 1.6rem;
+    border-bottom: 2px solid #FF7A00;
+    display: inline-block;
+    padding-bottom: 0.2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .contact-icon {
+    font-size: 1.5rem;
+    color: #FF7A00;
+    flex-shrink: 0;
+  }
+
+  .contact-item a {
+    color: #003B73;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .contact-item a:hover {
+    color: #FF7A00;
+    text-decoration: underline;
+  }
+
+  .contact-item p {
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .contact-details-card {
+      padding: 1rem;
+    }
+    .contact-item {
+      gap: 0.5rem;
+    }
+  }
+  </style>
+</head>
+<body>
+  
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <a href="index.html" aria-label="MoveWithUs home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 120 120">
+            <defs>
+              <linearGradient id="badgeGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#003B73"/>
+                <stop offset="100%" stop-color="#0055A5"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="56" fill="url(#badgeGradient)" stroke="#F2C94C" stroke-width="4"/>
+            <circle cx="60" cy="35" r="10" fill="#F2C94C"/>
+            <path d="M50 60 Q60 45 70 60 L65 85 Q60 95 55 85 Z" fill="#F2C94C"/>
+            <text x="50%" y="115" text-anchor="middle" font-size="14" font-family="Montserrat, Arial, sans-serif" font-weight="600" fill="white">MoveWithUs</text>
+          </svg>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
+          
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" aria-label="toggle navigation">☰</button>
+    </div>
+  </header>
+      <section class="hero" style="width:100vw; position:relative; left:50%; margin-left:-50vw; margin-right:-50vw;">
+        <div class="container hero-content">
+            <h1>Book a Trainer - Contact Form</h1>
+            <p>Use the form below to request a session with one of our certified trainers. We look forward to helping you achieve your fitness goals!</p>
+            <br>
+            <a href="schedule.html" class="btn btn-primary">Join Now</a>
+        </div>
+    </section>
+
+    <main id="main-content" class="program-grid container"> 
+    <br>
+      <section aria-labelledby="book-heading">
+      <h2 class="section-title">Request a Session</h2>
+
+      <form id="book-form" action="/submit-booking" method="post" novalidate>
+        <p class="visually-hidden" id="form-desc">Use this form to request a session with a trainer. All fields marked with * are required.</p>
+
+        <div>
+          <label for="full-name">Full name *</label>
+          <input id="full-name" name="full-name" type="text" required minlength="2" placeholder="Your full name">
+        </div>
+
+        <div>
+          <label for="email">Email address *</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com">
+        </div>
+
+        <div>
+          <label for="phone">Phone number</label>
+          <input id="phone" name="phone" type="tel" pattern="^\+?[0-9\s\-]{7,20}$" placeholder="+254 7xx xxx xxx" aria-describedby="phone-help">
+          <div id="phone-help" class="visually-hidden">Include country code for faster contact. Optional but helpful.</div>
+        </div>
+
+        <div>
+          <label for="trainer-select">Preferred trainer *</label>
+          <select id="trainer-select" name="trainer" required>
+            <option value="">Select a trainer</option>
+            <option value="brenda">Brenda — Yoga</option>
+            <option value="breanna">Breanna — HIIT</option>
+            <option value="kevin">Kevin — Strength</option>
+            <option value="bryan">Bryan — Cardio</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="date">Preferred date *</label>
+          <input id="date" name="date" type="date" required>
+        </div>
+
+        <div>
+          <label for="message">Message / goals *</label>
+          <textarea id="message" name="message" required minlength="10" rows="4" placeholder="Tell us your goals or needs"></textarea>
+        </div>
+
+        <div>
+          <button type="submit" class="btn">Send request</button>
+          <button type="reset" class="btn">Reset</button>
+        </div>
+      </form>
+    </section>
+<br>
+    <aside class="contact-details-card" aria-labelledby="contact-heading">
+  <h3 id="contact-heading">Contact Info</h3>
+
+  <div class="contact-item">
+    <span class="contact-icon">🏢</span>
+    <div>
+      <strong>MoveWithUs Sports Club</strong><br>
+      123 Fitness Avenue, Nairobi, Kenya
+    </div>
+  </div>
+
+  <div class="contact-item">
+    <span class="contact-icon">📞</span>
+    <div>
+      <a href="tel:+254700000000">+254 700 000 000</a>
+    </div>
+  </div>
+
+  <div class="contact-item">
+    <span class="contact-icon">✉️</span>
+    <div>
+      <a href="mailto:info@movewithus.org">info@movewithus.org</a>
+    </div>
+  </div>
+
+  <div class="contact-item">
+    <span class="contact-icon">⏰</span>
+    <div>
+      <p>Opening hours:<br>
+      Mon–Fri: 06:00–21:00<br>
+      Sat: 08:00–16:00<br>
+      Sun: Closed</p>
+    </div>
+  </div>
+
+  <div class="contact-item">
+    <span class="contact-icon">🌐</span>
+    <div>
+      Follow us:
+      <a href="https://facebook.com/movewithus" target="_blank" rel="noopener">Facebook</a> |
+      <a href="https://instagram.com/movewithus" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+
+  <div class="contact-item">
+    <span class="contact-icon">📍</span>
+    <div>
+      <a href="https://www.google.com/maps/search/?api=1&query=123+Fitness+Avenue+Nairobi" target="_blank" rel="noopener">Find us on the map</a>
+    </div>
+  </div>
+</aside>
+
+  </main>
+ 
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 MoveWithUs Sports Club - All rights reserved</p>
+    </div>
+  </footer>
+</body>
+</html>

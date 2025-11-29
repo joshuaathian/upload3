@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoveWithUs Sports Club — Home</title>
+  <meta
+    name="description"
+    content="MoveWithUs Sports Club — Strength, conditioning, and group fitness coached by certified trainers."
+  />
+  <link rel="stylesheet" href="stlyes.css" />
+  <style>
+    
+    .logo svg { transition: transform 0.3s; }
+    .logo svg:hover { transform: scale(1.1); }
+
+   
+.hero {
+  position: relative;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  overflow: hidden;
+}
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 59, 115, 0.6);
+  z-index: 2;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding: 0 1rem;
+}
+.hero-content h2 { font-size: 2.5rem; margin-bottom: 0.5rem; }
+.hero-content p { font-size: 1.2rem; margin-bottom: 1.5rem; }
+
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container nav-container">
+      <div class="logo">
+        <a href="index.html" aria-label="MoveWithUs home">
+          <svg xmlns="http://www.w3.org/2000/svg" width="65" height="65" viewBox="0 0 120 120">
+            <defs>
+              <linearGradient id="badgeGradient" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#003B73"/>
+                <stop offset="100%" stop-color="#0055A5"/>
+              </linearGradient>
+            </defs>
+            <circle cx="60" cy="60" r="56" fill="url(#badgeGradient)" stroke="#F2C94C" stroke-width="4"/>
+            <circle cx="60" cy="35" r="10" fill="#F2C94C"/>
+            <path d="M50 60 Q60 45 70 60 L65 85 Q60 95 55 85 Z" fill="#F2C94C"/>
+            <text x="50%" y="115" text-anchor="middle" font-size="14" font-family="Montserrat, Arial, sans-serif" font-weight="600" fill="white">MoveWithUs</text>
+          </svg>
+        </a>
+      </div>
+
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="active" aria-current="page">Home</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="trainers.html">Trainers</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="contact.html">Contact</a>
+          
+        </ul>
+      </nav>
+
+      <button class="nav-toggle" aria-label="toggle navigation">☰</button>
+    </div>
+  </header>
+
+ 
+
+<section class="hero">
+  <video class="hero-video" autoplay muted loop playsinline poster="fallback.jpg">
+    <source src="Video.mp4" type="Video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h2>Train With Purpose.</h2>
+    <p>
+      Join our strength, conditioning, and group fitness programs designed to
+      transform your performance — no matter your level.
+    </p>
+    <a href="schedule.html" class="btn btn-primary">View Weekly Schedule</a>
+  </div>
+</section>
+
+
+  
+  <section id="programs" class="programs container section">
+    <h2 class="section-title">Our Programs</h2>
+    <div class="program-grid">
+      <div class="program-card">
+        <h3>Strength Training</h3>
+        <p>Build muscle, increase power, and master key lifting techniques.</p>
+      </div>
+      <div class="program-card">
+        <h3>Conditioning</h3>
+        <p>Improve stamina, mobility, and athletic endurance through HIIT.</p>
+      </div>
+      <div class="program-card">
+        <h3>BoxFit</h3>
+        <p>High-energy cardio boxing paired with functional movement training.</p>
+      </div>
+      <div class="program-card">
+        <h3>Yoga Flow</h3>
+        <p>Flexibility, balance, and recovery for every athlete level.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="trainers" class="trainers container section">
+    <h2 class="section-title">Certified Trainers</h2>
+    <div class="trainers-gallery">
+      <figure>
+        <img src="Brenda - Yoga.jpg" alt="Brenda">
+        <figcaption>Coach Brenda — Strength Specialist</figcaption>
+      </figure>
+      <figure>
+        <img src="Kevin - Strength Training.jpg" alt="Kevin">
+        <figcaption>Coach Kevin — Conditioning Expert</figcaption>
+      </figure>
+      <figure>
+        <img src="Bryan - Cardio.jpg"alt="Bryan">
+        <figcaption>Coach Bryan — Flexibility & Mobility</figcaption>
+      </figure>
+      <figure>
+        <img src="Breanna - HIIT.jpg"alt="Breanna">
+        <figcaption>Coach Breanna — Flexibility & Mobility</figcaption>
+      </figure>
+    </div>
+  </section>
+
+ 
+  <section class="cta">
+    <div class="container">
+      <h2>Ready to start your fitness journey?</h2>
+      <a href="schedule.html" class="btn btn-secondary">Join a Class</a>
+    </div>
+  </section>
+
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2025 MoveWithUs Sports Club. All rights reserved.</p>
+    </div>
+  </footer>
+  <script>
+document.querySelector(".nav-toggle").addEventListener("click", function () {
+  document.querySelector(".main-nav").classList.toggle("open");
+});
+</script>
+
+
+</body>
+</html>
